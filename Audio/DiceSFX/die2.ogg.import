@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/die2.ogg-58139ed4204ce5da2c803a43e69fcb09.oggstr"
+
+[deps]
+
+source_file="res://Audio/DiceSFX/die2.ogg"
+dest_files=[ "res://.import/die2.ogg-58139ed4204ce5da2c803a43e69fcb09.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

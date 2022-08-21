@@ -1,0 +1,270 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Enchanted Land.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://addons/GGS/src/components/slider/ggsSlider.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 180
+outline_size = 8
+outline_color = Color( 0.0431373, 0.0431373, 0.0431373, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 86
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 62
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 47
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 33
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 2
+font_data = ExtResource( 1 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 25.0
+margin_bottom = 448.0
+custom_fonts/font = SubResource( 2 )
+text = "Tavern
+Farkle"
+align = 1
+valign = 1
+
+[node name="SinglePlayerButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.5
+margin_top = 7.0
+margin_right = 187.5
+margin_bottom = 114.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "SinglePlayer"
+
+[node name="LocalGameButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.5
+margin_top = 137.0
+margin_right = 187.5
+margin_bottom = 244.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Local Game"
+
+[node name="OptionsButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.5
+margin_top = 269.0
+margin_right = 187.5
+margin_bottom = 376.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.5
+margin_top = 403.0
+margin_right = 187.5
+margin_bottom = 510.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+
+[node name="OptionsContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.5
+margin_top = 31.0
+margin_right = 284.5
+margin_bottom = 566.0
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 578.0
+margin_bottom = 528.0
+
+[node name="OptionsLabel" type="Label" parent="OptionsContainer/VBoxContainer"]
+margin_right = 571.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 3 )
+text = "Options"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="OptionsContainer/VBoxContainer"]
+margin_top = 77.0
+margin_right = 571.0
+margin_bottom = 455.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsContainer/VBoxContainer/ScrollContainer"]
+margin_right = 571.0
+margin_bottom = 378.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_right = 571.0
+margin_bottom = 4.0
+
+[node name="VolumeLabel" type="Label" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 8.0
+margin_right = 571.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Volume"
+align = 1
+
+[node name="VolumeContainer" type="GridContainer" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 571.0
+margin_bottom = 196.0
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer/VolumeContainer"]
+margin_right = 284.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+text = "Master"
+align = 1
+
+[node name="MasterSlider" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer/VolumeContainer" instance=ExtResource( 3 )]
+margin_left = 353.0
+margin_right = 504.904
+margin_bottom = 40.0
+rect_min_size = Vector2( 151.904, 0 )
+size_flags_horizontal = 6
+size_flags_vertical = 1
+setting_index = 1
+
+[node name="MusicLabel" type="Label" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer/VolumeContainer"]
+margin_top = 44.0
+margin_right = 284.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+text = "Music"
+align = 1
+
+[node name="MusicSlider" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer/VolumeContainer" instance=ExtResource( 3 )]
+margin_left = 353.0
+margin_top = 44.0
+margin_right = 504.904
+margin_bottom = 84.0
+rect_min_size = Vector2( 151.904, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="SoundLabel" type="Label" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer/VolumeContainer"]
+margin_top = 88.0
+margin_right = 284.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+text = "Sound Effects"
+align = 1
+
+[node name="SoundSlider" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer/VolumeContainer" instance=ExtResource( 3 )]
+margin_left = 353.0
+margin_top = 88.0
+margin_right = 504.904
+margin_bottom = 128.0
+rect_min_size = Vector2( 151.904, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 3
+setting_index = 2
+
+[node name="BotLabel" type="Label" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 200.0
+margin_right = 571.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Bot Playstyle"
+align = 1
+
+[node name="GridContainer" type="GridContainer" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 260.0
+margin_right = 571.0
+margin_bottom = 300.0
+columns = 2
+
+[node name="RiskLabel" type="Label" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+margin_right = 284.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+text = "Risky  <->  Safe"
+align = 1
+
+[node name="RiskSlider" type="HSlider" parent="OptionsContainer/VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+margin_left = 353.0
+margin_right = 504.904
+margin_bottom = 40.0
+rect_min_size = Vector2( 151.904, 0 )
+size_flags_horizontal = 6
+size_flags_vertical = 1
+min_value = -500.0
+max_value = 500.0
+step = 10.0
+
+[node name="HSeparator2" type="HSeparator" parent="OptionsContainer/VBoxContainer"]
+margin_top = 459.0
+margin_right = 571.0
+margin_bottom = 463.0
+size_flags_vertical = 8
+
+[node name="DoneButton" type="Button" parent="OptionsContainer/VBoxContainer"]
+margin_left = 215.0
+margin_top = 467.0
+margin_right = 355.14
+margin_bottom = 521.0
+rect_min_size = Vector2( 140.14, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 6 )
+text = "Done"
+
+[connection signal="pressed" from="SinglePlayerButton" to="." method="_on_SinglePlayerButton_pressed"]
+[connection signal="pressed" from="LocalGameButton" to="." method="_on_LocalGameButton_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="OptionsContainer/VBoxContainer/DoneButton" to="." method="_on_OptionsDoneButton_pressed"]

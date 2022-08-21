@@ -1,0 +1,242 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Materials/Tray.material" type="Material" id=1]
+[ext_resource path="res://Prefabs/Die.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/DiceManager.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=4]
+[ext_resource path="res://Textures/roll_enabled.png" type="Texture" id=5]
+[ext_resource path="res://Textures/roll_disabled.png" type="Texture" id=6]
+[ext_resource path="res://Textures/pass_enabled.png" type="Texture" id=7]
+[ext_resource path="res://Textures/pass_disabled.png" type="Texture" id=8]
+[ext_resource path="res://Prefabs/Tabletop.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enchanted Land.otf" type="DynamicFontData" id=10]
+[ext_resource path="res://Prefabs/DarkDie.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/BustPanel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/BustPanel.gd" type="Script" id=13]
+[ext_resource path="res://Prefabs/Candle.tscn" type="PackedScene" id=15]
+
+[sub_resource type="PhysicsMaterial" id=4]
+bounce = 0.63
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 13, 8.018, 2.64944 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 17, 8, 0.375 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 46
+outline_size = 4
+outline_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 58
+outline_size = 4
+outline_color = Color( 0.0627451, 0.0627451, 0.0627451, 1 )
+extra_spacing_char = 3
+font_data = ExtResource( 10 )
+
+[node name="Level" type="Spatial"]
+script = ExtResource( 4 )
+single_player = true
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 29, 0 )
+fov = 90.1
+
+[node name="CandleLight" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5687, 12.4112, 0.500779 )
+light_energy = 0.914
+shadow_bias = 1.797
+omni_range = 705.881
+variance = 0.5
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9255, 8.34338, -0.4126 )
+visible = false
+light_color = Color( 1, 0.764706, 0.486275, 1 )
+light_energy = 2.909
+light_bake_mode = 2
+shadow_enabled = true
+shadow_bias = 0.685
+omni_range = 61.815
+omni_attenuation = 2.37842
+
+[node name="Tray" type="CSGCombiner" parent="."]
+material_override = ExtResource( 1 )
+use_collision = true
+
+[node name="MainTray" type="CSGBox" parent="Tray"]
+use_collision = true
+width = 25.0
+height = 2.02708
+depth = 35.0
+
+[node name="PlayArea1" type="CSGBox" parent="Tray"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65651, 9.75 )
+operation = 2
+use_collision = true
+width = 23.5
+height = 2.02708
+depth = 14.0
+
+[node name="PlayArea2" type="CSGBox" parent="Tray"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.657, -9.75 )
+operation = 2
+use_collision = true
+width = 23.5
+height = 2.02708
+depth = 14.0
+
+[node name="DiceManager1" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Die" parent="DiceManager1" instance=ExtResource( 2 )]
+transform = Transform( 0.578726, 0, -0.815522, 0, 1, 0, 0.815522, 0, 0.578726, 4.90979, 8.43739, 22.9525 )
+
+[node name="Die2" parent="DiceManager1" instance=ExtResource( 2 )]
+transform = Transform( 0.578726, 0, -0.815522, 0, 1, 0, 0.815522, 0, 0.578726, 4.53643, 9.77731, 22.0559 )
+
+[node name="Die3" parent="DiceManager1" instance=ExtResource( 2 )]
+transform = Transform( 0.578726, 0, -0.815522, 0, 1, 0, 0.815522, 0, 0.578726, 8.39274, 8.97976, 22.002 )
+
+[node name="Die4" parent="DiceManager1" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0318, 10.658, 20.9762 )
+
+[node name="Die5" parent="DiceManager1" instance=ExtResource( 2 )]
+transform = Transform( 0.578726, 0, -0.815522, 0, 1, 0, 0.815522, 0, 0.578726, 5.42697, 7.96399, 20.4591 )
+
+[node name="Die6" parent="DiceManager1" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73409, 9.42629, 22.6608 )
+
+[node name="DiceManager2" type="Node" parent="."]
+script = ExtResource( 3 )
+player_index = 1
+positive_z = true
+
+[node name="Die" parent="DiceManager2" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74716, 8.28977, -20.9985 )
+
+[node name="Die2" parent="DiceManager2" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8748, 9.53587, -20.4208 )
+
+[node name="Die3" parent="DiceManager2" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28821, 8.70962, -21.3783 )
+
+[node name="Die4" parent="DiceManager2" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12709, 8.70962, -20.579 )
+
+[node name="Die5" parent="DiceManager2" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.07767, 8.78386, -20.2924 )
+
+[node name="Die6" parent="DiceManager2" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.58247, 9.01888, -21.9685 )
+
+[node name="BustPanel1" parent="." instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 10.6726, 22.1013 )
+mass = 3.03
+script = ExtResource( 13 )
+
+[node name="BustPanel2" parent="." instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 11.3127, -23.3646 )
+mass = 3.03
+script = ExtResource( 13 )
+positive_z = true
+
+[node name="Ghost Walls" type="StaticBody" parent="."]
+collision_layer = 4
+collision_mask = 4
+physics_material_override = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ghost Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.73337, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Ghost Walls"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.1289, 8.733, 0 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Ghost Walls"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.129, 8.733, 0 )
+shape = SubResource( 2 )
+
+[node name="RollButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 51.5
+margin_top = 503.0
+margin_right = 338.5
+margin_bottom = 632.0
+rect_scale = Vector2( 0.680748, 0.680748 )
+hint_tooltip = "Score selected dice and roll again."
+texture_normal = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+expand = true
+
+[node name="PassButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 51.5
+margin_top = 391.0
+margin_right = 346.5
+margin_bottom = 520.0
+rect_scale = Vector2( 0.680748, 0.680748 )
+texture_normal = ExtResource( 7 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="Player2Info" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 43.5
+margin_top = 56.0
+margin_right = 260.5
+margin_bottom = 227.0
+custom_colors/font_color = Color( 0.870588, 0.870588, 0.870588, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Player 2
+Score: 1400
+Round Score: 150"
+align = 2
+
+[node name="Player1Info" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -268.5
+margin_top = -234.0
+margin_right = -51.5
+margin_bottom = -61.0
+custom_colors/font_color = Color( 0.870588, 0.870588, 0.870588, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Player 1
+Score: 1400
+Round Score: 150"
+valign = 2
+
+[node name="SelectedValueLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -212.5
+margin_top = -41.0
+margin_right = 250.5
+margin_bottom = 49.0
+custom_colors/font_color = Color( 0.890196, 0.890196, 0.890196, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "150"
+align = 2
+valign = 1
+
+[node name="Tabletop" parent="." instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.05225, 0 )
+
+[connection signal="pressed" from="RollButton" to="." method="_on_RollButton_pressed"]
+[connection signal="pressed" from="PassButton" to="." method="_on_PassButton_pressed"]

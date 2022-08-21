@@ -1,0 +1,95 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "LineEdit",
+"class": "BaseInput",
+"language": "GDScript",
+"path": "res://addons/GGS/src/base_classes/base_input.gd"
+}, {
+"base": "Node",
+"class": "GGSUtils",
+"language": "GDScript",
+"path": "res://addons/GGS/src/utils.gd"
+}, {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
+"base": "Reference",
+"class": "JSONBeautifier",
+"language": "GDScript",
+"path": "res://addons/GGS/_depedencies/json_beautifier/json_beautifier.gd"
+} ]
+_global_script_class_icons={
+"BaseInput": "",
+"GGSUtils": "",
+"GitAPI": "",
+"JSONBeautifier": ""
+}
+
+[application]
+
+config/name="Farkle"
+run/main_scene="res://Scenes/MainMenu.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+ggsManager="*res://addons/GGS/src/ggs_manager.gd"
+Global="*res://Scripts/global.gd"
+BgMusic="*res://Audio/BGMusic.tscn"
+
+[display]
+
+window/size/width=585
+window/size/height=1266
+window/handheld/orientation="portrait"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+
+[editor]
+
+version_control_autoload_on_startup=true
+version_control_plugin_name="GitAPI"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/GGS/plugin.cfg", "res://addons/randomAudioStreamPlayer/plugin.cfg" )
+
+[gdnative]
+
+singletons=[  ]
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+theme/use_hidpi=true
+
+[importer_defaults]
+
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+vram_compression/import_pvrtc=true
+quality/directional_shadow/size=2048
+quality/shadow_atlas/size=3328
+quality/shadow_atlas/size.mobile=3328
+quality/shading/force_vertex_shading.mobile=false
+environment/default_environment="res://default_env.tres"

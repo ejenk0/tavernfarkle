@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/randomAudioStreamPlayer/random_audio_stream_player_3D.gd" type="Script" id=1]
+[ext_resource path="res://Audio/DiceSFX/die3.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Audio/DiceSFX/die1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audio/DiceSFX/die2.ogg" type="AudioStream" id=4]
+
+[node name="RandomSFX" type="AudioStreamPlayer3D"]
+unit_db = 27.644
+bus = "SFX"
+script = ExtResource( 1 )
+samples = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]
+random_strategy = 1
+random_volume_range = 1.257
+random_pitch_range = 0.167

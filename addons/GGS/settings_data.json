@@ -1,0 +1,38 @@
+{
+	"0": {
+		"name": "music_volume",
+		"default": {
+			"value": 1,
+			"bus_name": "Music"
+		},
+		"current": {
+			"value": 1,
+			"bus_name": "Music"
+		},
+		"logic": "res://addons/GGS/logic/audio_slider.gd"
+	},
+	"1": {
+		"name": "master_volume",
+		"default": {
+			"value": 1,
+			"bus_name": "Master"
+		},
+		"current": {
+			"value": 1,
+			"bus_name": "Master"
+		},
+		"logic": "res://addons/GGS/logic/audio_slider.gd"
+	},
+	"2": {
+		"name": "sfx_volume",
+		"default": {
+			"value": 1,
+			"bus_name": "SFX"
+		},
+		"current": {
+			"value": 1,
+			"bus_name": "SFX"
+		},
+		"logic": "res://addons/GGS/logic/audio_slider.gd"
+	}
+}
